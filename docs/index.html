@@ -1,1 +1,158 @@
-<iframe src="./Mod Documentation.pdf" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"> Your browser doesn't support iframes </iframe>
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin-left: 2%;
+                font-size: 15px;
+                background-color: rgb(36, 36, 39);
+                color: rgb(255, 255, 255);
+                white-space: pre-line;
+            }
+            titletext{
+                font-size: 50px;
+                font-style: bold;
+            }
+            subtitletext{
+                font-size: 25px;
+                font-style: bold;
+            }
+            .codediv{
+                font-family: Consolas, Menlo, Monaco, monospace;
+                font-size: 25px;
+                background-color: rgb(20, 20, 20);
+                white-space: pre-line;
+                border: 5px solid rgb(20, 20, 20);;
+                border-left: 5px solid cyan;
+                border-radius: 5px;
+                color: white;
+            }
+            b{
+                font-size: 20;
+            }
+        </style>
+    </head>
+    <body>
+        <titletext>PROTOSHOCK Modding documentation</titletext>
+        <p>A documentation for modding the game protoshock</p>
+        <titletext>Setup</titletext>
+        <subtitletext>Installation</subtitletext>
+        <p>Install the Protoshock Mod Tools.unitypackage on the unity version 2021.3.8f1. Protoshock uses the Universal Render Pipeline
+            (URP). Please delete any post processing or cameras inside your scene unless you know what you are doing.</p>
+        <titletext>Building a mod</titletext>
+
+        <b>Please make sure you only haveone scene in your project.
+            Other scenes may take piority and may be loaded instead.
+        </b>
+        
+        <subtitletext>General scene setup</subtitletext>
+        <ul>
+            <li>Create an empty gameobject and set its position to the location of your spawn point, and add a "point" tag to the gameobject.</li>
+            <li>The forwards direction will be the players spawn direction.</li>
+            <li>For allowing bots to spawn, you will need to set the desired objects that they will walk on as nav mesh static, and bake a nav mesh.</li>
+            <subtitletext>Notes:</subtitletext>
+
+            <li>To allow for automatic mod downloads, you will need to upload your mod to <a href="https://mod.io/g/protoshock">Mod.io</a> and have the same mod name in the exported mod file and the uploaded page on  <a href="https://mod.io/g/protoshock">Mod.io</a>.</li>
+            <li><b>It is highly recommended to update the mod tools and reupload when there is a new version of protoshock released, the newest mod tools are found in your game installation directory</b>.</li>
+        </ul>
+        <subtitletext>Exporting</subtitletext>
+        <ul>
+            <li>At the top of the screen, click on "Tools" > "ModTool" > "Export a mod", and fill in the information.</li>
+            <li>Set the platform to windows.</li>
+            <li>Set the directory for your mod to be exported in your mods folder in the protoshock installation directory.</li>
+        </ul>
+
+        <titletext>Creating vehicles</titletext>
+        <subtitletext>Setup</subtitletext>
+        <ul>
+            <li>Create an empty gameobject, and set its position to the spawn location of the vehicle.</li>
+            <li>Set its tag to "vehiclepoint"</li>
+            <li>Attach a vehicle setter script to the object.</li>
+            <li>To change a vehicle model, in your scene, add the object you wish to be assigned as your vehicle model, and change the name of the root GameObject to a unique name.</li>
+            <li>Then in your vehicle setter script, change Car model name value to the name set of the GameObject. This system also works for car wheels and sounds, refer to vehicle setter properties for more information.</li>
+        </ul>
+        <subtitletext>Vehicle Setter Properties</subtitletext>
+        <p>The properties on the vehicle setter script by default will allow you to have the default vehicle within your level, however there is a list of properties you can change to have more customizability over your vehicle.</p>
+        <ul>
+            <li>Torque value: The torque applied on the wheels in the forward direction.</li>
+            <li>Break torque value: The torque applied on the wheels while breaking.</li>
+            <li>Steer angle value: The angle the front wheels turn when steering.</li>
+            <li>Exit pos value: The relative Vector3 coordinate of the vehicle's local space where the player will exit the vehicle.</li>
+            <li>Car model name value: The name of the scene object that the main body of the car will be, name this something unique.</li>
+            <li>Wheel model name value: The name of the scene object that the wheels of the car will be, name this something unique.</li>
+            <li>Cam target pos value: The position of the camera relative to the vehicle in local space.</li>
+            <li>Collider scale value: The dimensions/volume of the box collider on the vehicle object.</li>
+            <li>Audio name: The name of the scene object audio source that will be used for the engine audio of the vehicle.</li>
+            <li>Collider position value: The box collider offset.</li>
+            <li>Mass value: The mass of the rigidbody component on the vehicle.</li>
+            <li>Front wheels value: The offset of the front wheels.</li>
+            <li>Back wheels value: The offset of the back wheels.</li>
+            <li>Com value: The offset of the center of mass on the vehicle.</li>
+            <li>Max speed: The maximum allowed speed of the rigidbody component on the vehicle measured in KM/H.</li>
+        </ul>
+
+        <titletext>Methods: </titletext>
+
+
+        <titletext>OnWeaponHit</titletext>
+        <subtitletext>Usage:</subtitletext>
+        <div class="codediv">public void OnWeaponHit(float damage)
+            {
+            //your code here
+            }            
+        </div>
+        <li>Called when a gameobject with "Target" tag is hit by a weapon raycast.</li>
+        <li>Is not buffered by the server, players joining after the function has been called will not recieve function call.</li>
+        <br>
+        <titletext>damageplayer</titletext>
+        <subtitletext>Usage:</subtitletext>
+        <div class="codediv">float damage = 10;
+            GameObject.Find("PlayerMain").SendMessage("damageplayer", damage);    
+        </div>
+        <li>Calls the TakeDamage function on a PlayerMain GameObject.</li>
+        <br>
+        <titletext>damagebot</titletext>
+        <subtitletext>Usage:</subtitletext>
+        <div class="codediv">float damage = 10;
+            GameObject.Find("Bot").SendMessage("damagebot", damage);    
+        </div>
+        <li>Calls the TakeDamage function on a Bot GameObject.</li>
+        <br>
+        <titletext>requestplayerinfo</titletext>
+        <subtitletext>Usage:</subtitletext>
+        <div class="codediv">public void requestplayerinfo(string[] info)
+            {
+            //your code here
+            }
+        </div>
+        <li>Index 0 of info is player name.</li>
+        <li>Index 1 of info is the PlayerMain GameObject instance ID.</li>
+        <li>Index 2 of info is player health.</li>
+        <li>All values are returned as a string.</li>
+        <li>Array is recieved from each player in the scene.</li>
+        <br>
+        <titletext>Useful references</titletext>
+        <b>PlayerMain GameObject</b>
+        <li>PlayerMain is the main GameObject of the player prefab.</li>
+        <li>PlayerMain is the GameObject with the player.cs script. You can reference a PlayerMain GameObject by doing:
+        GameObject.Find("PlayerMain");</li>
+        <li>PlayerMain is the GameObject with a PhotonView component.</li>
+        <b>Bot GameObject</b>
+        <li>Bot is the main GameObject of the bot prefab.</li>
+        <li>Bot is the GameObject with the Bot.cs script. You can reference a Bot GameObject by doing:
+        GameObject.Find("Bot");</li>
+        <li>Bot is the GameObject with a PhotonView component.</li>
+        <b>Vehicle GameObject</b>
+        <li>Vehicle is the main GameObject of the vehicle prefab.</li>
+        <li>Vehicle is the GameObject with the Vehicle.cs script. You can reference a Vehicle Gameobject by doing GameObject.Find("Bot")</li>
+        <li>Vehicle.cs has a public variable called "Ismine".</li>
+        <li>Vehicle is the GameObject with a PhotonView component.</li>
+        <br>
+        <titletext>Other notes</titletext>
+        <subtitletext>Networking</subtitletext>
+        <p>Protoshock uses Photon Unity Networking 2 for networking: The unitypackage can be found here:
+            https://assetstore.unity.com/packages/tools/network/pun-2-free-119922</p>
+        <b>Please note: This is not officially supported by the mod tools provided and installing with your project may
+            cause issues.</b>
+    </body>
+</html>
