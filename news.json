@@ -1,1 +1,1 @@
-{"info":"@wawa\nPROTOSHOCK 0.5.4 IS OUT\nChangelog:\n-Fixed an issue of the event handler for checking for if a mod is loaded not being removed on non modded maps, this would cause major issues when loading modded maps after loading a non modded map."}
+{"info":"<@530036821707718678> \nPROTOSHOCK 0.5.4 IS OUT\nChangelog:\n-Fixed an issue of the event handler for checking for if a mod is loaded not being removed on non modded maps, this would cause major issues when loading modded maps after loading a non modded map."}
