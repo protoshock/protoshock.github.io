@@ -1,1 +1,1 @@
-{"info":"<@530036821707718678> \nPROTOSHOCK 0.5.4 IS OUT\nChangelog:\n-Fixed an issue of the event handler for checking for if a mod is loaded not being removed on non modded maps, this would cause major issues when loading modded maps after loading a non modded map."}
+{"info":"<@&929977643250614332> https://bracketproto.itch.io/protoshock\n```PROTOSHOCK 0.5.5 IS OUT\nChangelog:\n-Balanced movement, sliding and dashing speeds reduced for both bots and players\n-Added news and version info to main menu\n-Main menu UI changes\n-Added new UI to mod manager\n```"}
