@@ -129,6 +129,9 @@
         <li>BracketShader - <a href="https://github.com/OCSYT/BracketShader">https://github.com/OCSYT/BracketShader</a></li>
         <li>Water</li>
 
+        <titletext>Death boundries</titletext>
+        <p>You can add an instant death boundry by creating a object with a trigger collider, and adding the Deathboundry.cs script to it</p>
+
         <titletext>Methods: </titletext>
 
 
@@ -145,14 +148,21 @@
         <titletext>damageplayer</titletext>
         <subtitletext>Usage:</subtitletext>
         <div class="codediv">float damage = 10;
-            GameObject.Find("PlayerMain").SendMessage("damageplayer", damage);    
+            GameObject.Find("PlayerMain").SendMessage("damageplayer", damage, SendMessageOptions.DontRequireReciever);    
         </div>
         <li>Calls the TakeDamage function on a PlayerMain GameObject.</li>
+        <br>
+        <titletext>damagevehicle</titletext>
+        <subtitletext>Usage:</subtitletext>
+        <div class="codediv">float damage = 10;
+            GameObject.Find("Vehicle").SendMessage("damageplayer", damage, SendMessageOptions.DontRequireReciever);    
+        </div>
+        <li>Calls the TakeDamage function on a Vehicle GameObject.</li>
         <br>
         <titletext>damagebot</titletext>
         <subtitletext>Usage:</subtitletext>
         <div class="codediv">float damage = 10;
-            GameObject.Find("Bot").SendMessage("damagebot", damage);    
+            GameObject.Find("Bot").SendMessage("damagebot", damage, SendMessageOptions.DontRequireReciever);    
         </div>
         <li>Calls the TakeDamage function on a Bot GameObject.</li>
         <br>
