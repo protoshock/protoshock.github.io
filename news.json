@@ -1,1 +1,1 @@
-{"info":"<@&929977643250614332> https://bracketproto.itch.io/protoshock\n```PROTOSHOCK 0.5.7 IS OUT\nChangelog:\n-Replaced Bots NavMeshAgent with custon Rigidbody Agent\n-Added the ability for bots to jump across gaps\n-Added the ability to bots to jump onto objects\n-Fixed graphics not changing while in spectator mode\n```"}
+{"info":"<@&929977643250614332> https://bracketproto.itch.io/protoshock\n```PROTOSHOCK 0.5.8 IS OUT\nChangelog:\n-Bug fixes in rigidbody agent\n-Changed score to be based on just kills instead of kill/death ratio\n```"}
