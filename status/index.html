@@ -12,14 +12,6 @@
         </style>
     </head>
 <body>
-<iframe id="mainpage" allowfullscreen="true" allow="clipboard-read; clipboard-write" src="http://server.bracketproto.com:8880/" style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
-<script>
-    const urlparam = new URLSearchParams(window.location.search);
-    const roomurl = urlparam.get("room");
-    
-    if(roomurl){
-        document.getElementById("mainpage").src = document.getElementById("mainpage").src + "?room=" + roomurl;
-    }
-</script>
+<script>window.location.href = "http://server.bracketproto.com:8880/"</script>
 </body>
 </html>
