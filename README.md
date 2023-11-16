@@ -1,4 +1,3 @@
-![Logo](https://github.com/protoshock/protoshock.github.io/blob/main/ProtoshockLogo.png?raw=true)
 # PROTOSHOCK
 The main github branch for PROTOSHOCK by BracketProto
 
