@@ -25,11 +25,20 @@ img {
     height: 100%;
 }
 
+.btn {
+    padding: 10px 15px;
+    background-color: #00FFFF;
+    color: #fff;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+
 .logo {
     margin-bottom: 20px;
 }
 
-#content {
+content {
     min-width: 10vw;
     width: 30rem;
     max-width: 90vw;
