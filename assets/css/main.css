@@ -38,7 +38,7 @@ img {
     margin-bottom: 20px;
 }
 
-content {
+.content {
     min-width: 10vw;
     width: 30rem;
     max-width: 90vw;
